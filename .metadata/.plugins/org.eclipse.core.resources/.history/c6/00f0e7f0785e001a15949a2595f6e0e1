@@ -1,0 +1,13 @@
+package first_project;
+import java.sql.*;
+public class C {
+
+	public static void main(String[] args) throws Exception {
+		
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/geu","root","");
+		CallableStatement clst = con.prepareCall("{call def(55,@nm)}");
+		clst.execute();
+	}
+
+}
